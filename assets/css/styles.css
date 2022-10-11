@@ -1,0 +1,56 @@
+:root {
+    --dark: rebeccapurple;
+}
+
+.navInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.highScores {
+    padding-left: 20px;
+    color: rgb(159, 86, 231);
+}
+
+.timer {
+    padding-right: 20px;
+}
+
+.mainInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.questionContainer {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+}
+
+.questionContainer p {
+    font-size: 21px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    line-height: 1.5rem;
+    padding-bottom: 20px;
+}
+
+.startGame {
+    padding: 5px 15px;
+    background-color: var(--dark);
+    color: white;
+    font-size: 17px;
+    font-weight: 100;
+    border-radius: 5px;
+}
+
+.startGame:hover {
+    cursor: pointer;
+    background-color: rgb(191, 63, 198);
+    padding: 10px 20px;
+}
