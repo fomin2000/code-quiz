@@ -15,12 +15,34 @@
         </span>
     </header>
     <main class="mainInfo">
-        <div class="questionContainer">
+        <div class="titleContainer">
             <h1 class="containerTitle">Coding Quiz Challenge</h1>
-            <p>Good Luck with the upcoming coding-based questions! Your goal is to answer everything correctly in under a minute. Answering a question wrong will decrease your time amount by 10 seconds! Have Fun!</p>
+            <p class="titleIntro">Good Luck with the upcoming coding-based questions! Your goal is to answer everything correctly in under a minute. Answering a question wrong will decrease your time amount by 10 seconds! Have Fun!</p>
             <button class="startGame">Start Quiz</button>
         </div>
     </main>
+    <div class="hiddenDiv">
+        <h2 class="questionTitle"></h2>
+        <ul class="choices">
+            <button class="choice1"></button>
+            <button class="choice2"></button>
+            <button class="choice3"></button>
+            <button class="choice4"></button>
+        </ul>
+    </div>
+    <div class="hidden2">
+        <h2>Game Over!</h2>
+        <p>You ran out of time!</p>
+        <h3>Your score: </h3>
+        <p class="amountCorrect"></p>
+    </div>
+    <div class="hidden3">
+        <h2>Correct!</h2>
+    </div>
+    <div class="hidden4">
+        <h2>Wrong!</h2>
+    </div>
+
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
