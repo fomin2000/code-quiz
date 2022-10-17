@@ -32,6 +32,14 @@ var correct = 0
 
 var questionsAnswered = 0
 
+var score = 0
+
+var initialsInput = document.getElementById('initials')
+var initialsSubmit = document.getElementById('submitInitials')
+var showScores = document.querySelector('.highScores')
+var hiddenScores = document.querySelector('.hiddenScore')
+var setScores = document.querySelector('.setScores')
+
 
 
 // for (let i = 0; i < listStyles.length; i++) {
@@ -134,6 +142,7 @@ function endGame() {
 function displayMessage() {
     endMessage.style.display = 'block'
     amountCorrect.textContent = `Number of answers correct: ${correct}`
+
 }
 
 function startGame(e) {
@@ -172,6 +181,12 @@ function getQuestion() {
     return questions[randomNumber]
 }
 
+function submitScore(e) {
+    e.preventDefault
+    
+    localStorage.setItem('initials', initialsInput.value)
+    localStorage.setItem('score', score)
+}
 
 
 
@@ -184,6 +199,7 @@ choicesList.addEventListener('click', function(e) {
     if (usersPick === currentAnswer) {
         correct++
         questionsAnswered++
+        score = score + 10
         var nextQuestion = getQuestion()
         newQuestion(nextQuestion)
         hiddenCorrect.style.display = 'block'
@@ -194,7 +210,17 @@ choicesList.addEventListener('click', function(e) {
         newQuestion(nextQuestion)
         hiddenWrong.style.display = 'block'
     }
-    console.log(questionsAnswered)
 })
 
-console.log(questionsAnswered)
+
+showScores.addEventListener('click', function() {
+    var initials = localStorage.getItem("initials")
+    var score = localStorage.getItem("score")
+
+    hiddenScores.style.display = 'block'
+    setScores.textContent = (initials + ' - ' + score)
+
+    console.log(score)
+})
+
+initialsSubmit.addEventListener('click', submitScore)

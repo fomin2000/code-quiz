@@ -74,3 +74,11 @@
 .hidden3, .hidden4 {
     display: none;
 }
+
+.hiddenScore {
+    display: none;
+}
+
+.highScores {
+    cursor: pointer;
+}
