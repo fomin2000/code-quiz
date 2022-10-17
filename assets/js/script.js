@@ -76,6 +76,7 @@ var isCorrect = null
  */
 // var questions = ['People that write code are called: ', 'Which document mostly answers for styling?', 'JavaScript is used for: ', 'HTML is an acronym for: ', 'In html, an <ol> is reffered to: ']
 
+// question options
 var questions = [
     {
         question: 'People that write code are called: ',
@@ -105,7 +106,7 @@ var questions = [
     
 ]
 
-
+// new page starts with time count 0
 timeAmount.textContent = 0
 
 function hideMain() {
@@ -116,6 +117,7 @@ function showQuestion () {
     hiddenElement.style.display = 'block'
 }
 
+// timer interval
 function startTimer() {
     timeLeft = initialTime
     var timerInterval = setInterval(function () {
@@ -139,6 +141,7 @@ function endGame() {
     displayMessage()
 }
 
+// end of game message
 function displayMessage() {
     endMessage.style.display = 'block'
     amountCorrect.textContent = `Number of answers correct: ${correct}`
@@ -157,7 +160,13 @@ function startGame(e) {
     
 }
 
+// Selects random question
+function getQuestion() {
+    var randomNumber = Math.floor(Math.random() * questions.length)
+    return questions[randomNumber]
+}
 
+// Presents new question after choosing random
 function newQuestion(questionObj) {
     getQuestion() 
 
@@ -176,10 +185,6 @@ function newQuestion(questionObj) {
     hiddenWrong.style.display = 'none'
 }
 
-function getQuestion() {
-    var randomNumber = Math.floor(Math.random() * questions.length)
-    return questions[randomNumber]
-}
 
 function submitScore(e) {
     e.preventDefault
@@ -193,6 +198,7 @@ function submitScore(e) {
 //  Listeners
 startButton.addEventListener('click', startGame)
 
+// Game logic listener
 choicesList.addEventListener('click', function(e) {
     var usersPick = e.target.textContent
 
@@ -212,7 +218,11 @@ choicesList.addEventListener('click', function(e) {
     }
 })
 
+// Event listener to submit scores and initials into local storage
+initialsSubmit.addEventListener('click', submitScore)
 
+
+// Event Listener to render high scores
 showScores.addEventListener('click', function() {
     var initials = localStorage.getItem("initials")
     var score = localStorage.getItem("score")
@@ -222,5 +232,3 @@ showScores.addEventListener('click', function() {
 
     console.log(score)
 })
-
-initialsSubmit.addEventListener('click', submitScore)
